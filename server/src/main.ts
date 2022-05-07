@@ -5,11 +5,7 @@ import { routes } from './routes';
 
 const app = express();
 
-app.use(
-  cors({
-    origin: 'https://nlw-feedback-widget-psi.vercel.app/',
-  }),
-);
+app.use(cors());
 app.use(express.json());
 app.use(routes);
 
