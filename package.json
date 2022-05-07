@@ -1,0 +1,11 @@
+{
+  "name": "nlw-feedback-widget",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "server": "cd ./server && yarn dev",
+    "studio": "cd ./server && yarn studio",
+    "web": "cd ./web && yarn dev",
+    "mobile": "cd ./mobile && expo start"
+  }
+}
