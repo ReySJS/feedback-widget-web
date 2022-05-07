@@ -1,6 +1,8 @@
 import { FormEvent, useState } from 'react';
 import { ArrowLeft } from 'phosphor-react';
 
+import { api } from '../../../libs/api';
+
 import { FeedbackType, feedbackTypes } from '..';
 import { CloseButton } from '../../CloseButton';
 import { ScreenshotButton } from '../ScreenshotButton';
@@ -18,12 +20,35 @@ export const FeedbackContentStep = ({
 }: PropTypes) => {
   const [screenshot, setScreenshot] = useState<string | null>(null);
   const [comment, setComment] = useState('');
+  const [isSendingFeedback, setIsSendingFeedback] = useState(false);
 
   const feedbackTypeInfo = feedbackTypes[feedbackType];
 
-  function handleSubmitFeedback(event: FormEvent) {
+  async function handleSubmitFeedback(event: FormEvent) {
     event.preventDefault();
-    console.log({ screenshot, comment });
+
+    if (isSendingFeedback) {
+      return;
+    }
+
+    setIsSendingFeedback(true);
+
+    try {
+      await api.post('/feedbacks', {
+        userId: 1,
+        userName: 'Rey',
+        type: feedbackType,
+        screenshot,
+        comment,
+      });
+
+      onFeedbackSent();
+    } catch (error) {
+      console.log(error);
+      setIsSendingFeedback(false);
+    }
+    setIsSendingFeedback(false);
+
     onFeedbackSent();
   }
 
