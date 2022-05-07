@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Feedback {
+  id         String    @id @default(uuid())
+  type       String
+  userId     Int
+  userName   String
+  comment    String
+  screenshot String?
+  status     String    @default("Open")
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  deletedAt  DateTime?
+
+  @@map("feedbacks")
+}
