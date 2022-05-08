@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  @apply w-full h-full;
+}
+
 body {
-  @apply bg-[#09090A] text-zinc-100;
+  @apply w-full h-full bg-[#09090A] text-zinc-100;
+  background-image: url('./src/assets/wallpaper.svg');
+  background-size: cover;
 }
