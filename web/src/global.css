@@ -7,7 +7,5 @@ html {
 }
 
 body {
-  @apply w-full h-full bg-[#09090A] text-zinc-100;
-  background-image: url('./src/assets/wallpaper.svg');
-  background-size: cover;
+  @apply w-full h-full text-zinc-100 bg-[url('/src/assets/wallpaper.svg')] bg-cover;
 }
