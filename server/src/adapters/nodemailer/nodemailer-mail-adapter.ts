@@ -16,7 +16,7 @@ export class NodemailerMailAdapter implements MailAdapter {
   async sendMail({ subject, body }: SendMailData) {
     await transport.sendMail({
       from: 'Equipe Feedback Widget <oi@feedbackwidget.com>',
-      to: 'Rey <rey@alphaedtech.org.br',
+      to: 'Rey <rey@alphaedtech.org.br>',
       subject,
       html: body,
     });
