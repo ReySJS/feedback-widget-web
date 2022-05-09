@@ -1,6 +1,6 @@
 <h1 align="center">
   <img alt="Feedback widget" title="Feedback widget" src="https://user-images.githubusercontent.com/78664426/167280653-ee768e4d-6c05-4fe9-bbb1-6e8425c99f92.png" width="5%">
-  <p>Feedback widget</p>
+  <p>Feedback Widget</p>
 </h1>
 
 <p align="center">
