@@ -1,4 +1,5 @@
 export interface FeedbackCreateData {
+  project: string;
   type: string;
   userId: number;
   userName: string;

@@ -2,6 +2,7 @@ import { MailAdapter } from '../adapters/mail-adapter';
 import { FeedbacksRepository } from '../repositories/feedbacks-repository';
 
 interface SubmitFeedbackUseCaseRequest {
+  project: string;
   type: string;
   userId: number;
   userName: string;
@@ -16,7 +17,7 @@ export class SubmitFeedbackUseCase {
   ) {}
 
   async execute(request: SubmitFeedbackUseCaseRequest) {
-    const { type, userId, userName, comment, screenshot } = request;
+    const { project, type, userId, userName, comment, screenshot } = request;
 
     if (!type) {
       throw new Error('Type is required');
@@ -31,6 +32,7 @@ export class SubmitFeedbackUseCase {
     }
 
     await this.feedbackRepository.create({
+      project,
       type,
       userId,
       userName,

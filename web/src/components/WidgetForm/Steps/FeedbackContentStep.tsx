@@ -31,7 +31,7 @@ export const FeedbackContentStep = ({
     if (isSendingFeedback) {
       return;
     }
-
+    
     setIsSendingFeedback(true);
 
     try {
