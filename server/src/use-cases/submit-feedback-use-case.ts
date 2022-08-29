@@ -44,6 +44,7 @@ export class SubmitFeedbackUseCase {
       subject: 'Novo feedback',
       body: [
         `<div style="font-family: sans-serif; font-size:16px; color:#353535">`,
+        `<p>Projeto: ${project}</p>`,
         `<p>Tipo do feedback: ${type}</p>`,
         `<p>Usuário: ${userName}</p>`,
         `<p>Comentário: ${comment}</p>`,

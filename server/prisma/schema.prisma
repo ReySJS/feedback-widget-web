@@ -9,6 +9,7 @@ datasource db {
 
 model Feedback {
   id         String    @id @default(uuid())
+  project    String
   type       String
   userId     Int
   userName   String

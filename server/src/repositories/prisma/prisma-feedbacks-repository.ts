@@ -6,6 +6,7 @@ import {
 
 export class PrismaFeedbacksRepository implements FeedbacksRepository {
   async create({
+    project,
     type,
     userId,
     userName,
@@ -14,6 +15,7 @@ export class PrismaFeedbacksRepository implements FeedbacksRepository {
   }: FeedbackCreateData) {
     await prisma.feedback.create({
       data: {
+        project,
         type,
         userId,
         userName,
