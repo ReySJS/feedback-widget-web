@@ -16,9 +16,10 @@ const transport = nodemailer.createTransport({
 
 export class NodemailerMailAdapter implements MailAdapter {
   async sendMail({ subject, body }: SendMailData) {
+    const mailList = process.env.MAIL_LIST
     await transport.sendMail({
       from: 'Equipe Alpha Digital <noreply@alphalumen.org.br>',
-      to: 'Rey <rey@alphaedtech.org.br>',
+      to: JSON.parse(mailList!),
       subject,
       html: body,
     });
