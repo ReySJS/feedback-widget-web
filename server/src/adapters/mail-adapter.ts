@@ -1,6 +1,6 @@
 export interface SendMailData {
   subject: string;
-  userEmail: string;
+  userName: string;
   body: string;
 }
 
