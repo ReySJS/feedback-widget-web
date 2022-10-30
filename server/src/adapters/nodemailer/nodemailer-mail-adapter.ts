@@ -13,12 +13,10 @@ const transport = nodemailer.createTransport({
 });
 
 export class NodemailerMailAdapter implements MailAdapter {
-  async sendMail({ subject, userName, body }: SendMailData) {
-
-
+  async sendMail({ subject, userName, userEmail, body }: SendMailData) {
     const mailList = process.env.MAIL_LIST;
     await transport.sendMail({
-      from: `${userName} <noreply@alphalumen.org.br>`,
+      from: `${userName} <${userEmail}>`,
       to: JSON.parse(mailList!),
       subject,
       html: body,
