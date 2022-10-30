@@ -6,6 +6,7 @@ interface SubmitFeedbackUseCaseRequest {
   type: string;
   userId: number;
   userName: string;
+  userEmail: string;
   comment: string;
   screenshot?: string;
 }
@@ -17,10 +18,14 @@ export class SubmitFeedbackUseCase {
   ) {}
 
   async execute(request: SubmitFeedbackUseCaseRequest) {
-    const { project, type, userId, userName, comment, screenshot } = request;
+    const { project, type, userId, userName, userEmail, comment, screenshot } = request;
 
     if (!type) {
       throw new Error('Type is required');
+    }
+
+    if (!userEmail) {
+      throw new Error('Email is required');
     }
 
     if (!comment) {
@@ -36,12 +41,14 @@ export class SubmitFeedbackUseCase {
       type,
       userId,
       userName,
+      userEmail,
       comment,
       screenshot,
     });
 
     await this.mailAdapter.sendMail({
       subject: `Novo feedback - ${project}`,
+      userEmail,
       body: [
         `<div style="font-family: sans-serif; font-size:16px; color:#353535">`,
         `<p>Projeto: ${project}</p>`,

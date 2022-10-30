@@ -16,6 +16,7 @@ describe('Submit feedback', () => {
         type: 'BUG',
         userId: 1,
         userName: 'Test User',
+        userEmail: 'teste@email.com',
         comment: 'example comment',
         screenshot: 'data:image/png;base64sdsadsadasd',
       }),
@@ -32,6 +33,7 @@ describe('Submit feedback', () => {
         type: 'BUG',
         userId: 1,
         userName: 'Test User',
+        userEmail: 'teste@email.com',
         comment: 'example comment',
         screenshot: 'data:image/png;base64,sdsadsadasd',
       }),
@@ -45,6 +47,21 @@ describe('Submit feedback', () => {
         type: '',
         userId: 1,
         userName: 'Test User',
+        userEmail: 'teste@email.com',
+        comment: 'example comment',
+        screenshot: 'data:image/png;base64,sdsadsadasd',
+      }),
+    ).rejects.toThrow();
+  });
+
+  it('should not be able to submit feedback without user email', async () => {
+    await expect(
+      submitFeedback.execute({
+        project: 'EdTech-Asp',
+        type: '',
+        userId: 1,
+        userName: 'Test User',
+        userEmail: '',
         comment: 'example comment',
         screenshot: 'data:image/png;base64,sdsadsadasd',
       }),
@@ -58,6 +75,7 @@ describe('Submit feedback', () => {
         type: 'BUG',
         userId: 1,
         userName: 'Test User',
+        userEmail: 'teste@email.com',
         comment: '',
         screenshot: 'data:image/png;base64,sdsadsadasd',
       }),
@@ -70,6 +88,7 @@ describe('Submit feedback', () => {
         project: 'EdTech-Asp',
         type: 'BUG',
         userId: 1,
+        userEmail: 'teste@email.com',
         userName: 'Test User',
         comment: 'example comment',
         screenshot: 'test.jpg',

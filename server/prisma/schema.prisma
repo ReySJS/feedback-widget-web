@@ -13,6 +13,7 @@ model Feedback {
   type       String
   userId     Int
   userName   String
+  userEmail  String
   comment    String
   screenshot String?
   status     String    @default("Open")

@@ -10,6 +10,7 @@ export class PrismaFeedbacksRepository implements FeedbacksRepository {
     type,
     userId,
     userName,
+    userEmail,
     comment,
     screenshot,
   }: FeedbackCreateData) {
@@ -19,6 +20,7 @@ export class PrismaFeedbacksRepository implements FeedbacksRepository {
         type,
         userId,
         userName,
+        userEmail,
         comment,
         screenshot,
       },

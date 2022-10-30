@@ -3,6 +3,7 @@ export interface FeedbackCreateData {
   type: string;
   userId: number;
   userName: string;
+  userEmail: string;
   comment: string;
   screenshot?: string;
 }
